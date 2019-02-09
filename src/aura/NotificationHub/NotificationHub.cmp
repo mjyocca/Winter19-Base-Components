@@ -1,0 +1,37 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes" access="global">
+    
+    <aura:attribute name="notificationItems" type="Object[]" default=""/>
+    <aura:handler event="c:Notification" action="{!c.myAction}" />
+
+    <div class="slds-align_absolute-center slds-m-bottom_medium" >
+        <button class="slds-button slds-button_brand slds-m-bottom_medium" style="position: absolute; top: 50px;" onclick="{!c.clearNotifs}">Clear All</button>
+    </div>
+
+    <section role="log" class="slds-chat slds-m-top_xx-large">
+        <ul class="slds-chat-list">
+            <aura:iteration items="{!v.notificationItems}" var="item" >
+                <li class="slds-chat-listitem slds-chat-listitem_inbound">
+                    <div class="slds-chat-message">
+                        <span class="slds-avatar slds-avatar_circle slds-chat-avatar">
+                            <lightning:icon iconName="{! 'standard:' + item.sObject }" />
+                        </span>
+                        <div class="slds-chat-message__body">
+                            <div class="slds-chat-message__text slds-chat-message__text_inbound">
+                                <span>{!item.sObject} record: {!item.Id}  - was modified at {!item.date} </span>
+                            </div>
+                            <div class="slds-chat-message__meta" aria-label=""></div>
+                            <aura:iteration items="{!item.changedValues}" var="field">
+                                <div class="slds-chat-message__text slds-chat-message__text_inbound">
+                                    <span>{!field.key} was changed to {!field.value}</span>
+                                </div>
+                            </aura:iteration>
+                        </div>
+                    </div>
+                </li>
+            </aura:iteration>
+        </ul>
+    </section>
+
+    <lightning:utilityBarAPI aura:id="utilitybar"/>
+
+</aura:component>
