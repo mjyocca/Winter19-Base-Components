@@ -11,7 +11,6 @@
     <navType>Console</navType>
     <tabs>standard-Account</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Winter_19_Console_UtilityBar</utilityBar>
     <workspaceConfig>
         <mappings>
             <tab>standard-Account</tab>
