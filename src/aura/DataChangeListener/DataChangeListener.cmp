@@ -1,0 +1,20 @@
+<aura:component implements="lightning:backgroundUtilityItem,flexiPage:availableForAllPageTypes" controller="DataChangeListener_Controller" access="global">
+
+    <aura:attribute name="supportedObjects" type="String[]" default="['Lead', 'Account', 'Opportunity', 'Contact']" />
+    <aura:attribute name="Subscriptions" type="Object[]" />
+    <aura:attribute name="recordArray" type="String[]" />
+    <aura:attribute name="User" type="Object" />
+    <aura:attribute name="payload" type="Object" />
+    <aura:attribute name="demo" type="Boolean" default="true" />
+
+    <aura:registerEvent name="cdcEvent" type="c:Notification" />
+
+    <aura:handler name="change" value="{!v.payload}" action="{!c.fireCDCEvent}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="lightning:tabFocused" action="{!c.onTabFocused}" />
+    <aura:handler event="lightning:tabClosed" action="{! c.onTabClosed }"/> 
+
+    <lightning:empApi aura:id="empApi" />
+    <lightning:workspaceAPI aura:id="workspace" />
+
+</aura:component>
