@@ -1,7 +1,7 @@
 # Winter 19 Base Components and Interfaces Demo
 
 
-<a href="https://githubsfdeploy.herokuapp.com?owner=mjyocca&repo=Winter19-Base-Components&ref=src-folder">
+<a href="https://githubsfdeploy.herokuapp.com?owner=mjyocca&repo=Winter19-Base-Components&ref=master">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
